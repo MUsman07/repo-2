@@ -1,5 +1,35 @@
 ---
-title: "Untitled"
+title: "Repo-2"
+author: M USMAN
 format: html
+execute:
+  echo: false
+
 ---
 
+
+```{r}
+suppressPackageStartupMessages(library(tidyverse))
+```
+
+```{r}
+
+ggplot(mpg, aes(x = displ, y = hwy, color = class)) +
+  geom_point(size = 3, alpha = 0.7) +
+  geom_smooth(method = "lm", formula = y ~ x, se = FALSE, linetype = "dashed") +
+  scale_color_brewer(palette = "Set2") +
+  labs(
+    title = "Fuel Efficiency by Engine Displacement",
+    subtitle = "Linear Trend of Highway MPG vs Engine Size",
+    x = "Engine Displacement (litres)",
+    y = "Highway MPG",
+    color = "Car Class"
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(face = "bold"),
+    legend.position = "bottom"
+  )
+
+
+```
